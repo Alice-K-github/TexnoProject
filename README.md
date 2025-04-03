@@ -41,7 +41,7 @@
 2. Постройте и запустите контейнеры:
 
     ```bash
-    docker compose up --build
+    docker-compose up -d --build
     ```
 
 3. Откройте браузер и перейдите по адресу:
