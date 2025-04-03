@@ -1,4 +1,3 @@
-from django.template.context_processors import request
 from rest_framework import generics
 from rest_framework.filters import SearchFilter
 from rest_framework.permissions import BasePermission, IsAuthenticated
@@ -46,4 +45,3 @@ class SuppliersDestroyAPIView(generics.DestroyAPIView):
     serializer_class = SuppliersSerializer
     queryset = Suppliers.objects.all()
     permission_classes = [Is_active, IsAuthenticated]
-

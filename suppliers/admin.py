@@ -11,7 +11,7 @@ def Clean(modeladmin, request, queryset):
 
 @admin.register(Suppliers)
 class SuppliersUserAdmin(admin.ModelAdmin):
-    list_display  = (
+    list_display = (
         "id",
         "name",
         "contacts",
@@ -22,6 +22,7 @@ class SuppliersUserAdmin(admin.ModelAdmin):
     )
     list_filter = ['contacts__city']
     actions = [Clean]
+
     def activity_link(self, obj):
         if obj.supplier:
             link = reverse("admin:suppliers_suppliers_change", args=[obj.supplier.id])
@@ -42,6 +43,7 @@ class ContactsUserAdmin(admin.ModelAdmin):
         "street",
         'house_number',
     )
+
 
 @admin.register(Products)
 class ProductsUserAdmin(admin.ModelAdmin):

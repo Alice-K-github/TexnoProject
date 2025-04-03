@@ -24,4 +24,3 @@ class SuppliersSerializer(serializers.ModelSerializer):
         fields = (
             'name', 'contacts', 'products', 'created_at', 'supplier',
         )
-
