@@ -15,10 +15,17 @@ services:
     environment:
       - DEBUG=True
       - DATABASE_HOST=db
+    env_file:
+      - .env
   db:
     image: postgres:16.0
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=${POSTGRES_HOST}
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres -d pdb" ]
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
       interval: 10s
       timeout: 5s
       retries: 5
