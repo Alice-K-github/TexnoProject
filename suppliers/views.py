@@ -10,10 +10,8 @@ from suppliers.serializers import SuppliersSerializer
 class Is_active(BasePermission):
     def has_permission(self, request, view):
         if request.user.is_active:
-            print(request.user)
             return True
         else:
-            print(request.user)
             return False
 
 
