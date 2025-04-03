@@ -1,6 +1,6 @@
 from django.template.context_processors import request
 from rest_framework import generics
-from rest_framework.filters import OrderingFilter, SearchFilter
+from rest_framework.filters import SearchFilter
 from rest_framework.permissions import BasePermission, IsAuthenticated
 
 from suppliers.models import Suppliers
@@ -8,8 +8,8 @@ from suppliers.serializers import SuppliersSerializer
 
 
 class Is_active(BasePermission):
-    def has_object_permission(self, request, view, obj):
-        if request.user.filter(is_acrive=True).exists():
+    def has_permission(self, request, view):
+        if request.user.is_active:
             print(request.user)
             return True
         else:
@@ -17,12 +17,14 @@ class Is_active(BasePermission):
             return False
 
 
+
 class SuppliersListAPIView(generics.ListAPIView):
     serializer_class = SuppliersSerializer
     queryset = Suppliers.objects.all()
     filter_backends = [SearchFilter]
     search_fields = ['contacts__country']
-    '''permission_classes = [Is_active, IsAuthenticated]'''
+    permission_classes = [Is_active, IsAuthenticated]
+
 
 
 class SuppliersRetrieveAPIView(generics.RetrieveAPIView):
