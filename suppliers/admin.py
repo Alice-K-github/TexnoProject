@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.utils.html import format_html
 
 
+# admin action для очистки задолженности перед поставщиком
 @admin.action(description="Очистить задолженность")
 def Clean(modeladmin, request, queryset):
     queryset.update(debt=0)
@@ -20,9 +21,12 @@ class SuppliersUserAdmin(admin.ModelAdmin):
         'created_at',
         'activity_link'
     )
+    # Фильтр по городам
     list_filter = ['contacts__city']
+    # Добавление admin actions
     actions = [Clean]
 
+    # Ссылка на поставщика объекта
     def activity_link(self, obj):
         if obj.supplier:
             link = reverse("admin:suppliers_suppliers_change", args=[obj.supplier.id])

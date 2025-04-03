@@ -1,6 +1,7 @@
 from django.db import models
 
 
+# Модель контактов
 class Contacts(models.Model):
     email = models.EmailField(unique=True, verbose_name='Email')
     country = models.CharField(max_length=20, verbose_name='страна')
@@ -16,6 +17,7 @@ class Contacts(models.Model):
         verbose_name_plural = 'Контакты'
 
 
+# Модель продуктов
 class Products(models.Model):
     name = models.CharField(verbose_name="Название продукта", blank=True, null=True)
     model = models.CharField(verbose_name="Название модели", blank=True, null=True)
@@ -29,6 +31,7 @@ class Products(models.Model):
         verbose_name_plural = 'Продукты'
 
 
+# Модель поставщиков
 class Suppliers(models.Model):
     name = models.CharField(verbose_name="Название")
     contacts = models.ForeignKey(Contacts, on_delete=models.CASCADE, verbose_name="Контакты", blank=True, null=True)

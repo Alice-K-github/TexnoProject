@@ -2,6 +2,7 @@ from rest_framework import serializers
 from suppliers.models import Contacts, Products, Suppliers
 
 
+# Сериализатор модели контактов
 class ContactsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contacts
@@ -10,6 +11,7 @@ class ContactsSerializer(serializers.ModelSerializer):
         )
 
 
+# Сериализатор модели продуктов
 class ProductsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Products
@@ -18,6 +20,7 @@ class ProductsSerializer(serializers.ModelSerializer):
         )
 
 
+# Сериализатор модели поставщиков
 class SuppliersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Suppliers
