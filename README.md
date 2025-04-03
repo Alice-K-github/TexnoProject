@@ -34,7 +34,7 @@
 1. Клонируйте репозиторий:
 
     ```bash
-    git clone https://github.com/Alice-K-github/Django_30/tree/master
+    git clone https://github.com/Alice-K-github/TexnoProject.git
     cd Django_30
     ```
 
