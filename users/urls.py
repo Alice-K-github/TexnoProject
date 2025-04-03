@@ -11,5 +11,5 @@ urlpatterns = [
         path('login/', LoginView.as_view(), name='login'),
         path('register/', RegisterView.as_view(), name='register'),
         path('accounts/', include('django.contrib.auth.urls')),
-        path('token/', MyTokenObtainPairView.as_view(),
+        path('api/token/', MyTokenObtainPairView.as_view(),
              name='token_obtain_pair'),]
