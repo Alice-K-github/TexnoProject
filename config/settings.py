@@ -73,7 +73,7 @@ DATABASES = {
         'NAME': 'pdb',
         'USER': 'postgres',
         'PASSWORD': 'AlisaKa145',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
